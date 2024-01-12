@@ -82,15 +82,15 @@ def output_modifier(output):
 def bot_prefix_modifier(prefix):
     return prefix
 
-if __name__ == "__main__":
-    state = {"context": "START: "}
-
-    user_input = "!lynx http://klotz.me\nSummarize the above site."
+def show_test(user_input):
     print(f"{user_input=}")
     print(f"{input_modifier(user_input, state)=}")
     print(f"{state['context']=}")
+    
+if __name__ == "__main__":
+    state = {"context": "START: "}
 
-    user_input = "!links http://klotz.me\nSummarize the above site."
-    print(f"{user_input=}")
-    print(f"{input_modifier(user_input, state)}")
-    print(f"{state['context']=}")
+    show_test("!lynx http://klotz.me\nSummarize the above site.")
+    show_test("!links http://klotz.me\nSummarize the above site.")
+    show_test("!lynx https://scuttle.klotz.me/\nSummarize the above site.")
+        
