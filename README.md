@@ -2,6 +2,11 @@
 
  URL retrieval extension for [text-generation-webui](https://github.com/oobabooga/text-generation-webui).
 
+
+# Warning
+
+ No safety checks.
+
 # Use
 
  Type lynx or links then the URL:
@@ -26,16 +31,25 @@ or
  
 # Install
 
-Make sure to run these commands in the cmd script that came with text-generation-webui. eg `cmd_linux.sh``` (Linux)
+Make sure to run these commands after startign the Python environment
+with the cmd script that came with text-generation-webui, e.g. for Linux use:
+`cmd_linux.sh```
 
-1. First clone the repo to `text-generation-webui/extensions` folder
+1. Clone the repository into the extensions folder within the
+text-generation-webui project directory using the command:
 
-2. Then `cd lynx``` and run ```pip install -r requirements.txt```, if any
+   ```bash
+   git clone https://github.com/yourusername/yourrepository.git lynx
+   cd lynx
+   # pip install -r requirements.txt
+   ```
 
-3. Add ```lynx``` to launch commands of text-generation-webui
-   like so ```--extension lynx```
-
-4. Run text-gen-webui. There will be a checkbox with label ```Use Lynx``` in chat tab, this enables or disables the extension.
+Next, add the extension by modifying the launch commands for text-generation-webui, usually by editing CMD_FLAGS.txt to add `--extension lynx`
+			
+Finally, launch the text-generation-webui application. A new option
+labeled "Use Lynx" should appear in the chat tab when
+launched. Enabling this checkbox activates the extension; disabling it
+deactivates it.
 
 5. Done
 
