@@ -5,19 +5,21 @@ import gradio as gr
 try:
     import modules.shared as shared
 except ImportError:
-    shared = namedtuple('shared', 'processing_message')
+    shared = namedtuple('shared', ['processing_message', { 'truncation_length': 7999 } ])
 
 import subprocess
 import shlex
 
-MAX_LENGTH=8000
+MAX_LENGTH_IN_CHARS=shared.settings['truncation_length']*4-1000
 LABEL = "Enable Lynx"
 START_REGEX = r"^(!lynx|!links)\b"
 PROCESSING_MESSAGE = "*Retrieving URL...*"
-TYPING_MESSAGE = "*Typing...*"
+TYPING_MESSAGE = "*Is typing...*"
 #CONTEXT = "Relevant content is in the Lynx Web Page text results. Use this info in the response."
+# Context sticks around too long in the chat.
 CONTEXT=None
-POST_PROMPT = "Lynx Web Page text results:"
+TEXT_INTRO = "##########\nLynx Web Page text results:"
+TEXT_OUTRO = "##########\nAbove is Lynx web page text results "
 
 lynx_access = True
 
@@ -70,10 +72,17 @@ def retrieve_and_prompt(user_input, state, cmd=LYNX_COMMAND):
     if CONTEXT:
         state["context"] = state["context"] + CONTEXT
     lynx_data = lynx_results(url, cmd)
-    if len(lynx_data) > MAX_LENGTH:
-        lynx_data = lynx_data[0:MAX_LENGTH-1]
-    user_prompt = f"User question: {user_question}\n{POST_PROMPT} for {url}:\n{lynx_data}\n\nUser comment:\n{user_question}"
-    return user_prompt               
+    if len(lynx_data) > MAX_LENGTH_IN_CHARS:
+        lynx_data = f"[Text bwlow Truncated to {MAX_LENGTH_IN_CHARS}]:\n{lynx_data[0:MAX_LENGTH_IN_CHARS-1]}"
+    user_prompt = f"""User question about the text: {user_question}
+{TEXT_INTRO} for {url}:
+{lynx_data}
+{TEXT_OUTRO} for {url}.
+User question:\n{user_question}
+"""
+    print(f"{user_prompt=}")
+    return user_prompt
+
 
 def output_modifier(output):
     return output
@@ -82,11 +91,13 @@ def output_modifier(output):
 def bot_prefix_modifier(prefix):
     return prefix
 
+
 def show_test(user_input):
     print(f"{user_input=}")
     print(f"{input_modifier(user_input, state)=}")
     print(f"{state['context']=}")
     
+
 if __name__ == "__main__":
     state = {"context": "START: "}
 
