@@ -1,9 +1,8 @@
 # Lynx
 
-# lynx dump
  URL retrieval extension for [text-generation-webui](https://github.com/oobabooga/text-generation-webui).
 
- How to use
+# Use
 
  Type lynx or links then the URL:
 
@@ -18,7 +17,6 @@
  !lynx https://www.example.com`
  Sumarize the above site.
  ```
-
 or
 
  ```
@@ -26,8 +24,7 @@ or
  Sumarize the above site.
  ```
  
-
-# How to install
+# Install
 
 *** Make sure to run these commands in the cmd script that came with text-generation-webui. eg ```cmd_linux.sh```(Linux) ***
 
