@@ -6,31 +6,31 @@
 
  Type lynx or links then the URL:
 
- Type ```!lynx https://www.example.com```
+ Type `!lynx https://www.example.com`
 
- Type ```!links https://www.example.com```
+ Type `!links https://www.example.com`
 
   Alternatively, you can use Lynx followed the URL with a new line and then a question to be answered, e.g.:
 
  Type
  ```
- !lynx https://www.example.com`
+ !lynx https://www.example.com
  Sumarize the above site.
  ```
 or
 
  ```
- !links https://www.example.com`
+ !links https://www.example.com
  Sumarize the above site.
  ```
  
 # Install
 
-*** Make sure to run these commands in the cmd script that came with text-generation-webui. eg ```cmd_linux.sh```(Linux) ***
+Make sure to run these commands in the cmd script that came with text-generation-webui. eg `cmd_linux.sh``` (Linux)
 
-1. First clone the repo to ```text-generation-webui/extensions``` folder
+1. First clone the repo to `text-generation-webui/extensions` folder
 
-2. Then ```cd lynx``` and run ```pip install -r requirements.txt```, if any
+2. Then `cd lynx``` and run ```pip install -r requirements.txt```, if any
 
 3. Add ```lynx``` to launch commands of text-generation-webui
    like so ```--extension lynx```
