@@ -44,14 +44,12 @@ text-generation-webui project directory using the command:
    # pip install -r requirements.txt
    ```
 
-Next, add the extension by modifying the launch commands for text-generation-webui, usually by editing CMD_FLAGS.txt to add `--extension lynx`
+1. add the extension by modifying the launch commands for text-generation-webui, usually by editing CMD_FLAGS.txt to add `--extension lynx`
 			
-Finally, launch the text-generation-webui application. A new option
+1. Finally, launch the text-generation-webui application. A new option
 labeled "Use Lynx" should appear in the chat tab when
 launched. Enabling this checkbox activates the extension; disabling it
 deactivates it.
-
-5. Done
 
 # References
 - Used the skeleton for a similar extension from https://github.com/hav0x1014/web_search
