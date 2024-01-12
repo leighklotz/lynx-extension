@@ -33,7 +33,7 @@ or
 
 Make sure to run these commands after startign the Python environment
 with the cmd script that came with text-generation-webui, e.g. for Linux use:
-`cmd_linux.sh```
+`cmd_linux.sh`
 
 1. Clone the repository into the extensions folder within the
 text-generation-webui project directory using the command:
