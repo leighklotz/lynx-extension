@@ -9,26 +9,42 @@
 
 # Use
 
- Type lynx or links then the URL:
+ Type, lynx, links, or summarize, then the URLl optionally followed by a newline and user questions.
+
+## Retrieval
 
  Type `!lynx https://www.example.com`
 
  Type `!links https://www.example.com`
+
+## Retrieval and Questions
 
   Alternatively, you can use Lynx followed the URL with a new line and then a question to be answered, e.g.:
 
  Type
  ```
  !lynx https://www.example.com
- Sumarize the above site.
+ List the main authors.
  ```
 or
 
  ```
  !links https://www.example.com
- Sumarize the above site.
+ List the main authors.
  ```
  
+## Summary
+  ```
+  !summarize https://example.com
+  ```
+
+or
+  
+  ```
+  summarize https://example.com
+  Put main cobclusion first.
+```
+
 # Install
 
 Make sure to run these commands after startign the Python environment
